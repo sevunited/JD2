@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>jd2-task-part1-news</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+  		<display-name>CharsetFilter</display-name>
+        <filter-name>CharsetFilter</filter-name>
+        <filter-class>by.jd2.p1.task1.controller.filters.CharsetFilter</filter-class>
+        <init-param>
+            <param-name>characterEncoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+ </filter>
+ 
+  <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <url-pattern>/Controller</url-pattern>
+  </filter-mapping>
+  
+  <listener>
+  	    <listener-class>by.jd2.p1.task1.controller.listeners.ListenerPool</listener-class>
+  </listener>
+  
+
+  <servlet>
+    <servlet-name>myController</servlet-name>
+    <servlet-class>by.jd2.p1.task1.controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myController</servlet-name>
+    <url-pattern>/Controller</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>GoToMainPage</servlet-name>
+    <jsp-file>/WEB-INF/jsp/main.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoToMainPage</servlet-name>
+    <url-pattern>/goToMainPage</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
